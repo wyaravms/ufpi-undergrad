@@ -1,0 +1,368 @@
+\documentclass{asaproc}
+
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[]{bigints}
+\usepackage{indentfirst}
+\renewcommand{\baselinestretch}{1}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{dsfont}
+\graphicspath{ {images/} }
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes th
+%\usepackage{times}
+%If you have times installed on your system, please
+%uncomment the line above
+
+
+%For figures and tables to stretch across two columns
+%use \begin{figure*} \end{figure*} and
+%\begin{table*}\end{table*}
+% please place figures & tables as close as possible
+% to text references
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+ \title{Analysis of extreme data values using \\ the distribution of extreme generalized (GEV)}
+
+%input all authors' names
+
+\author{Wyara Vanesa Moura e Silva\\
+ICV: Voluntary Scientific Initiation (UFPI); Date: August 29, 2013\\}
+
+%input affiliations
+
+%{USDA Forest Service Forest Products Laboratory}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The world is undergoing environmental changes increasingly stringent in recent years. Such alterations cause disasters, which cause great losses, both material and financial, leading to concern from the authorities, to seek ways to minimize the effects of these events. Events of this size, because they are of low frequency and high severity are difficult to predict, there appeared studies related to extreme data to try to predict such disasters, in order to avoid or reduce losses.
+
+\section{Objectives}
+
+Propose a new model for estimating various types of Piaui state of extreme data, such as rivers quotas. In order to propose the model, we use the knowledge that the observations of the maxima of this type of data can be well approximated by the distribution of generalized extreme values (GEV). We will find probability of occurring natural disasters in the studied region, besides estimation of parameters for series with behavior change after modifications in the course of the rivers analyzed.
+
+The analyzed data represent maximum values of fluviometric quotas of the river Parna\'iba, located in the northeastern region of Brazil, in the state of Piau\'i. And data of maxima of the Paran\'a river located between the states of São Paulo, Minas Gerais and Mato Grosso do Sul. The analysis is based on hydrological data of water levels (fluviometric level) from the hydro meteorological network of the National Water Agency (ANA), using the Hydrological Information System (Hidro Web).
+
+\section{Methodology}
+
+\subsection{Extreme value theory}
+
+The Extreme Values Theory (EVT) is an area of probability that studies the stochastic behavior of extremes associated with a set of random variables (or random vectors) with common distribution $\mathcal{F}$. Included in the general name of extremes aggregates are the maximum and minimum order statistics and extreme excesses above (or below) the threshold high (or low).
+
+The theorem proposed by Fisher-Tippett (1928) has the characteristic of providing for maximum distribution limit in which these data are collected in block size $n$. Such distribution of extreme values are known as Type I (Gumbel), type II (Fréchet) and Type III (Weibull). These three types of distributions (I, II, III) can be seen as members of a single family of distributions: a generalized extreme value distribution (Generalized Extreme Value, GEV) standard, which is the representation of the three extreme value distributions . Its density ($\mu$ = 0) is given by:
+
+\begin{eqnarray*}
+\begin{array}{ccl}
+h(y|\xi, \sigma) = \left\{ 
+\begin{array}{lcl}
+\mbox{exp} \left\{ -\left(1+\xi \frac{y}{\sigma}\right)^{-\frac{1}{\xi}} \right\}\frac{1}{\sigma} \left(1+\xi \frac{y}{\sigma}\right)^{-\frac{1}{\xi} - 1}:  \\\\
+\mbox{if} \hspace{1ex} \xi < 0 \hspace{1ex} e \hspace{1ex} -\infty < y < \left(-\sigma/\xi\right);\\
+
+\mbox{or} \hspace{1ex}\xi > 0 \hspace{1ex} e \hspace{1ex} y \geq \left(-\sigma/\xi\right)\\\\
+
+\mbox{exp} \left\{ -\mbox{exp} \left\{ -\frac{y}{\sigma} \right\} \right\} \frac{1}{\sigma} \mbox{exp} \left\{ -y \right\}: \\\\
+
+\mbox{if} \hspace{1ex}\xi = 0 \hspace{1ex} \\
+\mbox{and} \hspace{1ex} y \in \mathbb{R}.
+\end{array}
+\right.
+\end{array}
+\end{eqnarray*}
+
+The shape parameter $\xi$ can be used to model a large number of behaviors tails.
+
+\section{Change Point Model}
+
+Cs$\ddot{o}$rg$\tilde{o}$ and Horváth (1997) have performed studies concerning parameter changes in a distribution, based on a sample  $X_{1}$, $X_{2}$, ..., $X_{m*}$, $X_{m*+1}$, ..., $X_{n}$, with density function f(x;$\theta_{i}$,$\eta$), in order to test if $\theta_{i}$ was altered in some point $m*$.
+
+In this work, the proposed model aims to find changes that occurred in the parameters of a serie that have two types of GEV distribution .
+
+A simple formulation of the point change problem in a series is given as follows.
+
+Let us assume that the densities $h_{1}(x)$ and $h_{2}(x)$ belong to a known parametric class \textbf{H} = {$h(x|\boldsymbol{\theta});$ $\boldsymbol{\theta}$ $\in$ $\Theta$} indexed by an unknown parameter $\boldsymbol{\theta}$ such that for a sequence of $n$ independent random variables \textbf{X} = ($x_{1}$, $x_{2}$, ..., $x_{n}$), we have
+\begin{eqnarray}
+\begin{array}{ccc}\label{eq1}
+X_{i} \sim h_{1}(x) & = & h(x_{i}|\boldsymbol{\theta_{1}}), \hspace{3ex} i = 1, ..., \tau_{1}  \\
+X_{i} \sim h_{2}(x) & = & h(x_{i}|\boldsymbol{\theta_{2}}), \hspace{3ex} i = \tau_{1}+1, ..., n 
+\end{array}
+\end{eqnarray}
+where $\boldsymbol{\theta_{1}}$ $\neq$ $\boldsymbol{\theta_{2}}$ and $\tau_{1}$ = 1, 2, ..., $n$ - 1 is the unknown parameter, called the point of change (Perreault, 2000). 
+
+That is, the first and second part of the sequence of random variables belong to the same family of statistical distributions, but with different unknown parameters $\boldsymbol{\theta}$.
+
+In which $\boldsymbol{\theta}$, specifically in this work, are the location ($\mu$), scale ($\sigma$) and tail ($\xi$) parameters of the GEV distribution .
+
+The resulting likelihood function of $n$ observations \textbf{X} = ($x_{1}$, $x_{2}$, ..., $x_{n}$) generated by model in (\ref{eq1}) becomes
+\begin{eqnarray}
+\begin{array}{ccc}\label{eq2}
+L(\boldsymbol{X}|\boldsymbol{\theta_{1}}, \boldsymbol{\theta_{2}}, \tau_{1}) & = & \displaystyle\prod_{i=1}^{\tau_{1}}h(x_{i}|\boldsymbol{\theta_{1}})\displaystyle\prod_{i=\tau_{1} + 1}^{n}h(x_{i}|\boldsymbol{\theta_{2}}) \nonumber
+\end{array}
+\end{eqnarray}
+in which, for example, the maximum likelihood estimator of $\boldsymbol{\theta_{1}}$, $\boldsymbol{\theta_{2}}$, $\tau_{1}$ can be obtained.
+
+Regarding the parameters of the GEV distribution of which it is part of the series under analysis, in which they will be two GEV, due to the existence of the point of change, estimation is based on the Bayesian approach, estimated by MCMC (Gamerman and Lopes, 2006).
+
+The prior joint distributions of the $\boldsymbol{\theta_{i}} = (\mu_{i}, \sigma_{i}, \xi_{i})$ parameters are given by:
+\begin{eqnarray}
+\begin{array}{rcl}\label{eq3}
+p(\mu_{1},\sigma_{1},\xi_{1}) & \propto & \sigma_{1}^{a-1}\exp(-b\sigma_{1})\exp(-\dfrac{(\mu_{1} - \mu_{1,0}^{2})^{2}}{2\sigma_{1,\mu_{1}}^{2}} \\
+& & \times  \exp(-\dfrac{(\xi_{1} - \xi_{1,0}^{2})^{2}}{2\sigma_{1}^{2,\xi_{1}}} \nonumber \\
+
+p(\mu_{2},\sigma_{2},\xi_{2}) & \propto & \sigma_{2}^{a-1}\exp(-b\sigma_{2})\exp(-\dfrac{(\mu_{2} - \mu_{2,0}^{2})^{2}}{2\sigma_{2,\mu_{2}}^{2}}\\
+& & \times \exp(-\dfrac{(\xi_{2} - \xi_{2,0}^{2})^{2}}{2\sigma_{2}^{2,\xi_{2}}} \nonumber \\
+\end{array}
+\end{eqnarray}
+
+Then we obtain the distribution proportional to a posteriori distribution, taking
+\begin{eqnarray}
+\begin{array}{rcl}\label{eq4}
+\pi(\mu_{1},\sigma_{1},\xi_{1}) & \propto & p(\mu_{1},\sigma_{1},\xi_{1})l(\mu_{1},\sigma_{1},\xi_{1}) \nonumber \\
+\pi(\mu_{2},\sigma_{2},\xi_{2}) & \propto & p(\mu_{2},\sigma_{2},\xi_{2})l(\mu_{2},\sigma_{2},\xi_{2})\nonumber 
+\end{array}
+\end{eqnarray}
+
+After algebraic manipulations, it can be seen that the posterior distribution has neither a known form nor its complete conditional distribution. Hence the possibility of using the Metropolis-Hastings algorithm to sample points of the posterior distribution in order to find simple solutions for this type of problem.
+
+For the parameter referring to the point of the change in distributions, given by $\tau_{1}$, will be obtained by means of the probability:
+\begin{eqnarray}
+p(\tau|\boldsymbol{X},\boldsymbol{\theta_{i}}) & = & \frac{L(\boldsymbol{X};\tau,\boldsymbol{\theta_{i}})}{\sum^{n}_{j=1}L(\boldsymbol{X};j,\boldsymbol{\theta_{i}})}, \hspace{3ex} i = 1, 2 \nonumber 
+\end{eqnarray}
+in which due to limitations of the software used to build the algorithm such probability became
+\begin{eqnarray}\label{probtau}
+\begin{array}{ccl}
+p(\tau|\boldsymbol{X},\boldsymbol{\theta_{i}}) && \\
+ = & \dfrac{\exp\{L(\boldsymbol{X};\tau,\boldsymbol{\theta_{i})\}}}{\displaystyle\sum^{n}_{j=1}\exp\{\mbox{min}(L(\boldsymbol{X};j,\boldsymbol{\theta_{i}})) - L(\boldsymbol{X};j,\boldsymbol{\theta_{i}}) \}} \\
+\end{array}
+\end{eqnarray}
+where $i=1,2$, and instead of $L(\boldsymbol{X};j,\boldsymbol{\theta_{i}})$, we apply the logarithm in the likelihood function, making $l(\boldsymbol{X};j,\boldsymbol{\theta_{i}})$, making it easier to process the algorithm.
+
+In that $l(\boldsymbol{X};j,\boldsymbol{\theta_{i}})$  will be given by
+\begin{eqnarray}
+l(\tau|\boldsymbol{X},\boldsymbol{\theta_{i}}) & = & \sum^{\tau}_{j=1}\log\left(\prod_{i=1}^{\tau}h(x_{i}|\theta_{i})\right) \nonumber \\
+&& + \sum^{n-1}_{j=\tau+1}\log\left(\prod_{i=\tau+1}^{n-1}h(x_{i}|\theta_{i})\right) \nonumber 
+\end{eqnarray}
+
+The sampling was done using Metropolis-Hastings to estimate the parameters of the GEV functions, and the probability condition to estimate the point of change. The parameters of each GEV were estimated separately, $\boldsymbol{\theta_{i}} = (\mu_{i}, \sigma_{i}, \xi_{i})$.
+
+Details of the MCMC sampling scheme are given below. In iteration $s$, the parameters are updated as follows:
+
+Sampling $\boldsymbol{\theta_{i}}$ $(= \mu_{i}, \sigma_{i}, \xi_{i})$: where $i$, indicates the amount of GEV, according to how many change points in the series. To estimate the parameters an initial kick will be given initially for $\boldsymbol{\theta_{i}^{0}}$ $(= \mu^{0}, \sigma^{0}, \xi^{0})$, then a new value $\sigma'$ of the Gamma distribution $(\sigma^{(t)2}/V_{\sigma},\sigma^{(t)}/V_{\sigma})$, $\mu'$ the Normal distribution $(\mu^{(t)},V_{\mu})$ and $\xi '$ e $\xi '$ the Normal distribution $(\xi^{(t)},V_{\xi})$.
+
+Thus, the probability of acceptance $\alpha(\boldsymbol{\theta^{(t)}},\boldsymbol{\theta '})$ will be calculated as in
+\begin{eqnarray*}
+\begin{array}{ccl}
+\alpha(\boldsymbol{\theta^{(t)}},\boldsymbol{\theta '}) & = & \mbox{min} \left\{ 1, \dfrac{\pi\left(\boldsymbol{\theta'}\right)f_{G}\left(\sigma^{(t)} | \dfrac{\sigma^{'2}}{V_{\sigma}},\dfrac{\sigma '}{V_{\sigma}}\right)}{\pi(\boldsymbol{\theta^{(t)}})f_{G}\left(\sigma ' | \dfrac{\sigma^{(t)2}}{V_{\sigma}},\dfrac{\sigma^{(t)}}{V_{\sigma}}\right)} \right\}
+\end{array}
+\end{eqnarray*}
+
+and generate $u$ $\sim$ $U(0,1)$. If $u \leq \alpha(\boldsymbol{\theta^{(t)}},\boldsymbol{\theta '})$ then accept the new value and make  $\mu^{(t+1)} = \mu '$, $\sigma^{(t+1)} = \sigma '$ and $\xi^{(t+1)} = \xi '$. Otherwise reject and make $\mu^{(t+1)} = \mu^{(t)}$, $\sigma^{(t+1)} = \sigma^{(t)}$ and $\xi^{(t+1)} = \xi^{(t)}$.
+
+Sampling $\tau$: Then, the first kick will be given to the point of change of the series. Then they will be updated according to the probability, $p(\tau|\boldsymbol{X},\boldsymbol{\theta_{i}})$ data in (\ref{probtau}).
+
+Thus, we will sample a value for the change point with probability as in (\ref{probtau}).
+
+\section{Results}
+
+We analyzed historical series corresponding to maximum levels of quotas (in cm), of the rivers: Parna\'iba and Paran\'a.
+
+The Table \ref{descript} below shows the information about these historical series.
+
+\begin{table}[H]
+\caption{Descriptive informations about the time series.}\label{descript}
+\centering
+\begin{tabular}{llllllcc}
+\hline
+River& City & Period & n \\
+\hline
+Parna\'iba & Teresina & 07/01/1963  & 413\\
+ & & to 08/01/2012 & \\
+Paran\'a & Gua\'ira & 06/01/1920  & 1100 \\
+ & & to 10/01/2012 & \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Parna\'iba River}
+
+The temporal series of maximum data for the Parna\'iba River is shown below in Figure \ref{parn}. It can be observed in the time series graph an increase in the maximum level of quotas, the period in which this increase occurred since 1970, the period from 1970 to 1980 not all the quota data has been recorded.
+
+In 1970, it was the inauguration year of the Boa Esperan\c{c}a Dam, in the municipality of Guardalupe, which was built with the objective of promoting the hydraulic exploitation of the Parna\'iba River. What is observed after its inauguration was that there was an increase in the maximum quotas, but we do not have the true knowledge of the real reasons for such a change of maximum levels.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.48\textwidth, height =0.26\textheight]{srp.pdf}   
+\caption{Time Series of Parna\'iba River}
+\label{parn}
+\end{figure}
+
+The proposed point change model, using Bayesian approach, initial kick $k = 100$ resulted in plot in Figure \ref{ch-parn} of the probabilities of each number to be the point that the change occur.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.48\textwidth, height =0.26\textheight]{APLIC1.pdf}   
+\caption{Change-Point probabilities, Parna\'iba River}
+\label{ch-parn}
+\end{figure}
+
+In that in point $63$ that obtained the highest probability of occurrence of the change, dated 09/01/1969. From the proposed model, we also estimate the parameters of the GEV distributions taking into account the point of change. The estimated parameters are shown in Table \ref{tabparn}.
+
+\begin{table}[H]
+\caption{Estimates of the parameters, for points $\tau$$\leq$63 e $\tau$$>$63.}\label{tabparn}
+\small{
+\begin{tabular}{lrclccccc}
+\hline
+\multicolumn{3}{c }{$\boldsymbol{\tau}$\textbf{$\leq$63}}  &\\
+\hline
+Parameters & Estimates    & 95\% Credible Interval \\ 
+\hline
+Location ($\mu$)		 & 104.7935 		& [84.44076 ; 126.2104]  \\
+
+Scale ($\sigma$)	 & 76.4508     & [55.6550 ; 102.4004] \\
+
+Shape ($\xi$)			 & 0.4828   & [0.1101 ; 0.9018] \\
+\hline
+\multicolumn{3}{c}{$\boldsymbol{\tau}$\textbf{$>$63}} & \\
+\hline
+Paramters & Estimates   & 95\% Credible Interval \\
+\hline
+Location ($\mu$)		 & 307.0897 		& [300.1058 ; 314.4478]   \\
+Scale ($\sigma$)	 & 63.1190    & [57.4499 ; 69.2535] \\ 
+Shape ($\xi$)			 & 0.2577   & [0.1480 ; 0.3688]\\ 
+\hline
+\end{tabular}}
+\end{table}  
+
+In this way, we can see that there was an increase in the lease parameter $\mu$, since the $\sigma$ scale and form $\xi$ there was a decrease.
+
+Analyzing the return graphs shown in Figure \ref{r1}, after the change point, it can be seen that for $\boldsymbol{\tau>63}$, it is observed that in a period corresponding to every 1 year and 10 years , the maximum level of dimensions is expected to be 515.5729 cm and 691.5289 cm respectively.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.48\textwidth, height =0.26\textheight]{grpar1.pdf}   
+\caption{Returns Levels, Parna\'iba River}
+\label{r1}
+\end{figure}
+
+An example of such returns for 10 years occurred in May 2009 when CHESF registered a maximum of 688cm at the monthly quota level in the Parna\'iba River, which caused severe flooding and impacts to society and the region's ecosystem.
+
+More severe extremes are likely to occur in a period of 100 years, with maximum heights between 770.7334 cm and 975.0603 cm. Such an occurrence of these extremes was witnessed by the capital of Piau\'i - Teresina, in 1985, in which one of the busiest avenues of the cities that stood by the river flooded. As shown in Figure \ref{enchente}:
+
+\begin{figure}[H]
+\caption{Flood, Maranh\~ao Avenue - Teresina - Piau\'i }
+\centering
+\includegraphics[scale=0.48]{ena.jpg}
+\includegraphics[scale=0.48]{end.jpg}
+\label{enchente}
+\end{figure} 
+
+The photos above are from Valmira Cabral, who runs the Vaqueiro Museum in the Alto Long\'a municipality. In 1985, she worked at Companhia Energética do Piau\'i - Cepisa, and recorded the damage in the Teresina Center from the top of the building on Maranh\~ao Avenue.
+
+Floods have always been considered problems of great public concern, since they cause great damages, which compromise the quality of life of the population of Piauí, especially in the riverside regions.
+
+\subsection{Paran\'a River}
+
+We can observe the graph of the temporal series of maximums of the Paran\'a River, which is found in Figure 6.5, the occurrence of a point of change just as there was in the Rio Parna\'iba. This point of change occurred approximately after the construction of the Itaipu Hydroelectric Power Plant in 1982.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.48\textwidth, height =0.26\textheight]{srpar.pdf}   
+\caption{Time Series of Paraná River}
+\label{parn}
+\end{figure}
+
+Thus, the modeling was done by applying the proposed scheme change point $\boldsymbol{\tau}$, using Bayesian approach, initial kick {\bf k = 800} had as a result:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.48\textwidth, height =0.26\textheight]{kprob5milpar.pdf}   
+\caption{Change-Point probabilities, Paran\'a River}
+\label{ch-para}
+\end{figure}
+
+The most likely period of occurrence to change point was 737, dated 11/11/1981.
+
+\begin{table}[H]
+\caption{Estimates of the parameters, for points $\tau$$\leq$737 e $\tau$$>$737.}\label{tabpara}
+\small{
+\begin{tabular}{lcclccccc}
+\hline
+\multicolumn{3}{c }{$\boldsymbol{\tau}$\textbf{$\leq$737}}  &\\
+\hline
+Parameters & Estimates    & 95\% Credible Interval \\ 
+\hline
+Location ($\mu$)		 & 129.9135 		& [125.8823 ; 133.7578]  \\
+
+Scale ($\sigma$)	 &  51.4345     & [48.4643 ; 55.0175] \\
+
+Shape ($\xi$)			 & -0.1248  & [-0.1765 ; -0.0646]\\
+\hline
+\multicolumn{3}{c}{$\boldsymbol{\tau}$\textbf{$>$737}} & \\
+\hline
+Parameters & Estimates   & 95\% Credible Interval \\
+\hline
+Location ($\mu$)		 & 216.1418 		& [211.7028 ; 220.6419]   \\
+Scale ($\sigma$)	 & 40.9981    & [37.9853 ; 44.2026] \\ 
+Shape ($\xi$)			 & -0.0576   & [-0.1142 ; 0.0040]\\ 
+\hline
+\end{tabular}}
+\end{table} 
+
+The estimation of the parameters of the GEV distributions taking into account the point of change can also be found using the proposed model. The estimated parameters are shown in Table \ref{tabpara}
+
+The observed parameters are similar to those in the Parna\'iba River, where there was an increase in the lease parameter ($\mu$), the scale ($\sigma$) and form ($\xi$) there was a decrease.
+
+Starting from the fact of the existence of such a point of change in the distribution regime, a comparison will be made between the returns before and after the point, where we will have:
+
+Looking at the returns to $\tau$$\leq$737, it is observed that in a period corresponding to every 1 year and 10 years, the maximum level of quotas is expected to be 237.9595 cm and 313.1509 cm respectively. Such returns can be seen in the return graph in Figure \ref{r1}.
+
+The returns to $\tau$$>$ 737, it is noted that in a period corresponding to every 1 year and 10 years, the maximum level of quotas is expected to be 309.4345 cm and 384.0969 cm respectively. These returns can be seen in the return graph in Figure \ref{r2}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.48\textwidth, height =0.26\textheight]{grpar2.pdf}   
+\caption{Returns Levels, Paran\'a River}
+\label{r2}
+\end{figure}
+
+Now showing through data, what is observed graphically is that after the point of change, there was an increase in the maximum values expected for returns in the time series.
+
+\section{Remarks}
+
+The proposed model for determining change points in time series was considerably effective. We verified the effectiveness of the model, from proposed simulations, where the change points were found, or accurately, or within a 95 \% confidence interval. In addition, we observed that the model has a fast identification when the parameter that changes in the GEV distribution is the lease ($\mu$).
+
+Applications were made using fluviometric data, a future application would be to use such a model in other types of data, such as financial data. In addition to trying to create a model in which could be found more than one point regime in a time series.
+
+Such applications in river basin data have made us realize that through human interference the course of a river can be significantly altered, causing predictions expected for height of quotas before the intervention to become larger after human action. In the case under analysis, the intervention was the construction of hydroelectric plants.
+
+\begin{references}
+{\footnotesize
+\itemsep=3pt
+
+\item CS$\ddot{O}$RG$\tilde{O}$, M e HORVÁTH, L. (1997) \textbf{Limit Theorems in Change Point Analysis. Wiley: Chichester}.
+
+\item FISHER, R. A. e TIPPET, L. H. C. (1928) {\bf On the estimation of the frequency
+distributions of the largest and smallest sumber of a sample}, Proceedings of the
+Cambridge Philosophycal Society, 24, 180-190.
+
+\item GAMERMAN, D. e LOPES, H. F. (2006) {\bf Markov chain Monte Carlo: Stochastic Simulation for Bayesian Inference}, 2a. edição, Chapman \& Hall.
+
+\item Perreault, L. Berniera, J. Bobée, B. Parenta, E. (2000) {\bf Bayesian change-point analysis in hydrometeorological time series. Part 1. The normal model revisited}. Journal of Hydrology 235, 221-241.
+}
+\end{references}
+
+
+
+\end{document}
+
